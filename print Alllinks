@@ -1,0 +1,25 @@
+package practice;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Alllinks {
+
+	public static void main(String[] args) {
+	    ChromeDriver driver = new ChromeDriver();
+        driver.get("https://www.tutorialspoint.com/selenium/practice/links.php");
+        List<WebElement> links = driver.findElements(By.tagName("a"));
+        for (WebElement link : links) {
+            String url = link.getAttribute("href");  
+            if (url != null) {
+                System.out.println(url); 
+            }
+        }
+
+        driver.quit();
+    }
+
+	}
