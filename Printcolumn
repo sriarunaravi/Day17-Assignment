@@ -1,0 +1,26 @@
+package practice;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class PrintColumn {
+
+	public static void main(String[] args) {
+		 WebDriver driver = new ChromeDriver();
+	        driver.get("https://www.tutorialspoint.com/selenium/practice/webtables.php");
+	      WebElement table=driver.findElement(By.tagName("table"));
+	      List<WebElement>rows=table.findElements(By.tagName("tr"));	   
+          for (int i = 1; i < rows.size(); i++) { 
+              WebElement row = rows.get(i);
+              List<WebElement> cells = row.findElements(By.tagName("td"));
+              if (cells.size() >=0) {
+                  System.out.println(cells.get(0).getText());  
+              }
+ }
+          driver.quit();
+          }	
+}
